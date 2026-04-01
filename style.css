@@ -1,40 +1,63 @@
 body {
     margin: 0;
-    background: #ffebee;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    color: #4a4a4a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
 }
 
-.layer {
-    display: none;
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
+.layer { display: none; text-align: center; padding: 20px; max-width: 400px; }
+.layer.active { display: block; animation: softFade 1.5s ease; }
+
+@keyframes softFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.layer.active {
-    display: block;
+.heart { font-size: 80px; cursor: pointer; animation: pulse 1.2s infinite; }
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Photo Frame Styling */
 .photo-frame img {
-    width: 250px;
+    width: 100%;
+    max-width: 250px;
+    border: 8px solid white;
     border-radius: 15px;
-    border: 5px solid white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* Floating Animation */
-.envelope {
+.poetry { margin-top: 15px; font-style: italic; font-size: 1.1rem; color: #ad1457; }
+
+.proposal-text { font-size: 1.2rem; line-height: 1.4; }
+.big-question { font-size: 2.2rem; color: #b71c1c; margin: 10px 0; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+
+.buttons button {
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: bold;
+}
+
+#yesBtn { background: #e91e63; color: white; box-shadow: 0 4px 10px rgba(233,30,99,0.3); }
+#noBtn { background: #757575; color: white; position: absolute; transition: 0.1s; }
+
+.next-btn {
+    background: white;
+    border: 1px solid #e91e63;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    color: #e91e63;
+}    cursor: pointer;
     background: #ff4081;
     color: white;
     padding: 40px;
